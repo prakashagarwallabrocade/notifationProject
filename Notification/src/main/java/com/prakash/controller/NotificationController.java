@@ -37,13 +37,13 @@ public class NotificationController {
     }
 
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/dismiss/{id}", method = RequestMethod.PUT)
     public void dismissNotificationByID(@PathVariable("id") int id) {
 
         notificationService.dismissNotificationByID(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/push", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void pushNotification(@RequestBody NotificationDO notificationDO) {
 
         notificationService.pushNotification(notificationDO);

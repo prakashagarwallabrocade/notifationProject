@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@brm-ut-portal8dbint-1.brocade.com:1531:WPCFGQA
+        </property>
+        <property name="hibernate.connection.username">webportal</property>
+        <property name="hibernate.connection.password">web1smine</property>
+
+
+        <!--JDBC Connection pool(Use the build in)  -->
+        <property name="connection.pool_size">2</property>
+        <!-- Disable Second level cache -->
+        <property name="cache.use_second_level_cache">false</property>
+        <!-- SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+        <property name="hibernate.cache.provider_class">
+            org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
+        </property>
+
+        <!--  -->
+        <!-- <property name="hibernate.default_schema">WPCFGQA</property> -->
+        <!--Echo all executed SQL to stdout   -->
+        <property name="show_sql">true</property>
+        <!-- Drop and re-create the database schema on startup
+        <property name="hbm2ddl.auto">create</property>-->
+        <!-- Update the table -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- Names the annoted entity class -->
+
+
+        <mapping class="com.prakash.domain.NotificationDO"></mapping>
+    </session-factory>
+</hibernate-configuration>
